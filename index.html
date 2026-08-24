@@ -1,0 +1,1515 @@
+<!--
+  AONL Foundation — Homepage
+  Cambios aplicados en esta versión:
+  1) Paleta de color actualizada: se reemplazó el azul marino/dorado por
+     #005844 (verde oscuro, color base) y #00BE93 (verde brillante, acento).
+  2) Se reemplazaron TODOS los placeholders de foto por imágenes reales
+     (Unsplash, licencia gratuita para uso comercial, sin atribución
+     obligatoria). Son imágenes de referencia — se recomienda sustituirlas
+     por fotografía propia de AONL cuando esté disponible.
+  3) Los CTA secundarios del hero y los enlaces de "Ways to Give" ahora
+     apuntan a rutas de subpágina (placeholders tipo "/nuestro-impacto")
+     en lugar de anclas dentro de la misma página, ya que el contenido
+     detallado vivirá en páginas interiores. AJUSTA estas rutas a las
+     URLs reales de tu sitio antes de publicar.
+-->
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --navy: #005844;
+        --navy-mid: #00473A;
+        --accent: #00BE93;
+        --sky: #6FE3C4;
+        --gold: #B08A2E;
+        --gold-dark: #8C6B1F;
+        --gold-tint: #F7F0E1;
+        --white: #ffffff;
+        --off-white: #F4F6F9;
+        --text-body: #3a3d4a;
+        --text-muted: #6b7280;
+        --border: rgba(0, 88, 68, 0.12);
+        --serif: "Univers", serif;
+        --sans: "Univers", sans-serif;
+    }
+
+    .aonlf {
+        font-family: var(--sans);
+        background: var(--white);
+        color: var(--text-body);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .aonlf *,
+    .aonlf *::before,
+    .aonlf *::after {
+        box-sizing: border-box;
+    }
+
+    .aonlf .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    @keyframes aonlfFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(1em);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ════════════════════════════════════════════
+   SHARED LAYOUT / TYPE
+════════════════════════════════════════════ */
+    .aonlf section {
+        padding: 4.5em 3.5em;
+    }
+
+    .aonlf section.tint {
+        background: var(--off-white);
+    }
+
+    .aonlf section.gold-tint {
+        background: var(--gold-tint);
+    }
+
+    .aonlf .aonlf-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+
+    .aonlf .section-kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.625em;
+        margin-bottom: 0.9em;
+    }
+
+    .aonlf .section-kicker__line {
+        width: 1.75em;
+        height: 0.1875em;
+        background: var(--accent);
+        border-radius: 0.125em;
+        flex-shrink: 0;
+    }
+
+    .aonlf .section-kicker--gold .section-kicker__line {
+        background: var(--gold);
+    }
+
+    .aonlf .section-kicker__text {
+        font-size: 0.6875em;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--navy-mid);
+    }
+
+    .aonlf .section-title {
+        font-family: var(--serif);
+        font-size: clamp(1.6em, 2.8vw, 2.25em);
+        font-weight: 400;
+        color: var(--navy);
+        line-height: 1.15;
+        margin-bottom: 0.5em;
+    }
+
+    .aonlf .section-subtitle {
+        font-size: 0.9375em;
+        color: var(--text-muted);
+        line-height: 1.75;
+        max-width: 42em;
+    }
+
+    /* ════════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════ */
+    .aonlf-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: 0.9375em;
+        font-weight: 600;
+        padding: 0.875em 1.75em;
+        border-radius: 0.5em;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        border: 1.5px solid transparent;
+        cursor: pointer;
+    }
+
+    .aonlf-btn:hover {
+        transform: translateY(-0.1em);
+    }
+
+    .aonlf-btn--gold {
+        background: var(--gold);
+        color: var(--white);
+    }
+
+    .aonlf-btn--gold:hover {
+        background: var(--gold-dark);
+    }
+
+    .aonlf-btn--outline {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.45);
+        color: var(--white);
+    }
+
+    .aonlf-btn--outline:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .aonlf-btn--navy {
+        background: var(--navy);
+        color: var(--white);
+    }
+
+    .aonlf-btn--navy:hover {
+        background: var(--navy-mid);
+    }
+
+    .aonlf-btn--outline-navy {
+        background: transparent;
+        border-color: var(--border);
+        color: var(--navy-mid);
+    }
+
+    .aonlf-btn--outline-navy:hover {
+        border-color: var(--navy);
+        background: var(--off-white);
+    }
+
+    /* ════════════════════════════════════════════
+   HERO SLIDER
+════════════════════════════════════════════ */
+    .aonlf-hero {
+        position: relative;
+        width: 100%;
+        height: 38em;
+        max-height: 80vh;
+        overflow: hidden;
+        background: var(--navy);
+    }
+
+    .aonlf-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.9s ease;
+        z-index: 0;
+    }
+
+    .aonlf-slide.is-active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+
+    .aonlf-slide__media {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .aonlf-slide__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right center;
+    }
+
+    .aonlf-slide__scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg,
+                rgba(0, 88, 68, 0.95) 0%,
+                rgba(0, 88, 68, 0.9) 32%,
+                rgba(0, 88, 68, 0.55) 55%,
+                rgba(0, 88, 68, 0.15) 78%,
+                rgba(0, 88, 68, 0) 100%);
+    }
+
+    .aonlf-slide__content {
+        position: relative;
+        z-index: 2;
+        max-width: 1180px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 3.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .aonlf-slide__body {
+        max-width: 30em;
+    }
+
+    .aonlf-slide__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: 0.6875em;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--sky);
+        margin-bottom: 1em;
+    }
+
+    .aonlf-slide__eyebrow::before {
+        content: '';
+        width: 1.5em;
+        height: 0.1875em;
+        background: var(--gold);
+        border-radius: 0.125em;
+    }
+
+    .aonlf-slide__title {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(1.8em, 3.6vw, 2.6em);
+        line-height: 1.15;
+        color: var(--white);
+        margin-bottom: 0.55em;
+    }
+
+    .aonlf-slide__title em {
+        font-style: italic;
+        color: var(--sky);
+    }
+
+    .aonlf-slide__text {
+        font-size: 1em;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 1.75em;
+    }
+
+    .aonlf-slide__ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.875em;
+    }
+
+    .is-active .aonlf-slide__body > * {
+        animation: aonlfFadeUp 0.7s ease both;
+    }
+
+    .is-active .aonlf-slide__eyebrow {
+        animation-delay: 0.05s;
+    }
+
+    .is-active .aonlf-slide__title {
+        animation-delay: 0.1s;
+    }
+
+    .is-active .aonlf-slide__text {
+        animation-delay: 0.15s;
+    }
+
+    .is-active .aonlf-slide__ctas {
+        animation-delay: 0.2s;
+    }
+
+    .aonlf-hero__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 2.75em;
+        height: 2.75em;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+    }
+
+    .aonlf-hero__arrow:hover {
+        background: rgba(255, 255, 255, 0.22);
+    }
+
+    .aonlf-hero__arrow svg {
+        width: 1.15em;
+        height: 1.15em;
+    }
+
+    .aonlf-hero__arrow--prev {
+        left: 1.5em;
+    }
+
+    .aonlf-hero__arrow--next {
+        right: 1.5em;
+    }
+
+    .aonlf-hero__dots {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        bottom: 1.75em;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.6em;
+    }
+
+    .aonlf-hero__dot {
+        width: 0.625em;
+        height: 0.625em;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s, transform 0.2s;
+    }
+
+    .aonlf-hero__dot.is-active {
+        background: var(--gold);
+        transform: scale(1.25);
+    }
+
+    /* ════════════════════════════════════════════
+   PERSISTENT / FLOATING DONATE CTA
+════════════════════════════════════════════ */
+    .aonlf-floating-donate {
+        position: fixed;
+        right: 1.5em;
+        bottom: 1.5em;
+        z-index: 90;
+        opacity: 0;
+        transform: translateY(0.75em);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .aonlf-floating-donate.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .aonlf-floating-donate .aonlf-btn {
+        box-shadow: 0 0.75em 1.75em rgba(0, 0, 0, 0.28);
+    }
+
+    /* ════════════════════════════════════════════
+   MISSION & VISION
+════════════════════════════════════════════ */
+    .aonlf-mv {
+        padding: 0;
+    }
+
+    .aonlf-mv__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 32em;
+    }
+
+    .aonlf-mv__media {
+        position: relative;
+    }
+
+    .aonlf-mv__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4em 4em;
+        background: var(--navy);
+    }
+
+    .aonlf-mv__block + .aonlf-mv__block {
+        margin-top: 2.25em;
+        padding-top: 2.25em;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .aonlf-mv__label {
+        font-size: 0.6875em;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6em;
+        display: block;
+    }
+
+    .aonlf-mv__statement {
+        font-family: var(--serif);
+        font-size: 1.4em;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--white);
+    }
+
+    /* ════════════════════════════════════════════
+   IMPACT / PROGRAMS
+════════════════════════════════════════════ */
+    .aonlf-give-card__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        font-size: 0.875em;
+        font-weight: 600;
+        color: var(--gold-dark);
+        text-decoration: none;
+    }
+
+    .aonlf-give-card__link:hover {
+        text-decoration: underline;
+    }
+
+    /* ════════════════════════════════════════════
+   REUSABLE DONATION CONTENT BLOCK
+════════════════════════════════════════════ */
+    .aonlf-donate-block {
+        position: relative;
+        background: var(--navy);
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .aonlf-donate-block__grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        align-items: stretch;
+        min-height: 26em;
+    }
+
+    .aonlf-donate-block__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4em;
+    }
+
+    .aonlf-donate-block__eyebrow {
+        font-size: 0.6875em;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75em;
+    }
+
+    .aonlf-donate-block__headline {
+        font-family: var(--serif);
+        font-size: clamp(1.6em, 3vw, 2.1em);
+        font-weight: 400;
+        color: var(--white);
+        line-height: 1.2;
+        margin-bottom: 0.6em;
+    }
+
+    .aonlf-donate-block__body {
+        font-size: 1em;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 32em;
+        margin-bottom: 1.75em;
+    }
+
+    .aonlf-donate-block__media {
+        position: relative;
+    }
+
+    /* ════════════════════════════════════════════
+   IMAGE HELPERS
+   (Sustituyen a los placeholders .aonlf-photo)
+════════════════════════════════════════════ */
+    .aonlf-img {
+        width: 100%;
+        height: 100%;
+        min-height: 16em;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* ════════════════════════════════════════════
+   FOUNDATION BULLETIN / NEWS (near top of the page)
+════════════════════════════════════════════ */
+    .aonlf-news {
+        background: var(--off-white);
+        padding: 2em 3.5em;
+    }
+
+    .aonlf-news__inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 1.5em;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-left: 0.3em solid var(--gold);
+        border-radius: 0.875em;
+        padding: 1.5em 2em;
+    }
+
+    .aonlf-news__icon {
+        width: 2.75em;
+        height: 2.75em;
+        border-radius: 50%;
+        background: var(--gold-tint);
+        color: var(--gold-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .aonlf-news__icon svg {
+        width: 1.375em;
+        height: 1.375em;
+    }
+
+    .aonlf-news__body {
+        flex: 1;
+    }
+
+    .aonlf-news__eyebrow {
+        font-size: 0.6875em;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--navy-mid);
+        margin-bottom: 0.3em;
+        display: block;
+    }
+
+    .aonlf-news__headline {
+        font-family: var(--serif);
+        font-size: 1.15em;
+        font-weight: 400;
+        color: var(--navy);
+        margin-bottom: 0.25em;
+    }
+
+    .aonlf-news__text {
+        font-size: 0.875em;
+        color: var(--text-muted);
+        line-height: 1.6;
+    }
+
+    .aonlf-news__link {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: 0.9375em;
+        font-weight: 600;
+        color: var(--gold-dark);
+        text-decoration: none;
+        white-space: nowrap;
+        border: 1.5px solid var(--gold);
+        border-radius: 0.5em;
+        padding: 0.7em 1.25em;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .aonlf-news__link:hover {
+        background: var(--gold);
+        color: var(--white);
+    }
+
+    /* ════════════════════════════════════════════
+   WHO WE SUPPORT
+════════════════════════════════════════════ */
+    .aonlf-who__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5em;
+        align-items: center;
+    }
+
+    .aonlf-who__media {
+        aspect-ratio: 4 / 3;
+        border-radius: 0.875em;
+        overflow: hidden;
+    }
+
+    .aonlf-who__intro {
+        font-size: 1em;
+        line-height: 1.8;
+        color: var(--text-body);
+        margin-bottom: 1.75em;
+    }
+
+    .aonlf-who__groups {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-bottom: 1.75em;
+    }
+
+    .aonlf-who__group {
+        display: flex;
+        align-items: baseline;
+        gap: 0.75em;
+        padding-bottom: 1em;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .aonlf-who__group:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .aonlf-who__group-name {
+        font-family: var(--serif);
+        font-size: 1.05em;
+        color: var(--navy);
+        min-width: 11em;
+    }
+
+    .aonlf-who__group-desc {
+        font-size: 0.875em;
+        color: var(--text-muted);
+        line-height: 1.6;
+    }
+
+    .aonlf-who__impact {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.1em;
+        color: var(--navy-mid);
+    }
+
+    /* ════════════════════════════════════════════
+   OUR IMPACT
+════════════════════════════════════════════ */
+    .aonlf-impact__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5em;
+        align-items: center;
+        margin-top: 2.5em;
+    }
+
+    .aonlf-impact__media {
+        aspect-ratio: 4 / 3;
+        border-radius: 0.875em;
+        overflow: hidden;
+    }
+
+    .aonlf-impact__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        margin-bottom: 2em;
+    }
+
+    .aonlf-impact__item {
+        display: flex;
+        gap: 1em;
+        align-items: flex-start;
+    }
+
+    .aonlf-impact__item svg {
+        width: 1.5em;
+        height: 1.5em;
+        color: var(--gold-dark);
+        flex-shrink: 0;
+        margin-top: 0.15em;
+    }
+
+    .aonlf-impact__item-title {
+        font-family: var(--serif);
+        font-size: 1.05em;
+        color: var(--navy);
+        margin-bottom: 0.2em;
+    }
+
+    .aonlf-impact__item-desc {
+        font-size: 0.875em;
+        color: var(--text-muted);
+        line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════
+   WAYS TO GIVE
+════════════════════════════════════════════ */
+    .aonlf-give__grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 3.5em;
+        align-items: center;
+        margin-top: 2.5em;
+    }
+
+    .aonlf-give__media {
+        aspect-ratio: 4 / 3;
+        border-radius: 0.875em;
+        overflow: hidden;
+    }
+
+    .aonlf-give__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .aonlf-give__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5em;
+        padding: 1.25em 0;
+        border-bottom: 1px solid rgba(0, 88, 68, 0.1);
+    }
+
+    .aonlf-give__row:first-child {
+        padding-top: 0;
+    }
+
+    .aonlf-give__row-title {
+        font-family: var(--serif);
+        font-size: 1.1em;
+        color: var(--navy);
+        margin-bottom: 0.3em;
+    }
+
+    .aonlf-give__row-desc {
+        font-size: 0.875em;
+        color: var(--text-muted);
+        line-height: 1.6;
+        max-width: 26em;
+    }
+
+    .aonlf-give__row-link {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        font-size: 0.875em;
+        font-weight: 600;
+        color: var(--gold-dark);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .aonlf-give__row-link:hover {
+        text-decoration: underline;
+    }
+
+    /* ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
+    .aonlf-footer {
+        background: var(--navy);
+        padding: 3.5em 3.5em 2em;
+    }
+
+    .aonlf-footer__grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 3em;
+        padding-bottom: 2.5em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .aonlf-footer__brand {
+        font-family: var(--serif);
+        font-size: 1.15em;
+        color: var(--white);
+        margin-bottom: 0.75em;
+    }
+
+    .aonlf-footer__tagline {
+        font-size: 0.875em;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.7;
+        max-width: 22em;
+    }
+
+    .aonlf-footer__heading {
+        font-size: 0.6875em;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1em;
+    }
+
+    .aonlf-footer__links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+    }
+
+    .aonlf-footer__links a {
+        font-size: 0.875em;
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+    }
+
+    .aonlf-footer__links a:hover {
+        color: var(--white);
+        text-decoration: underline;
+    }
+
+    .aonlf-footer__bottom {
+        padding-top: 1.5em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    .aonlf-footer__copy {
+        font-size: 0.8125em;
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+    .aonlf-footer__legal {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25em;
+    }
+
+    .aonlf-footer__legal a {
+        font-size: 0.8125em;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+    }
+
+    .aonlf-footer__legal a:hover {
+        color: var(--white);
+        text-decoration: underline;
+    }
+
+    /* ════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+        .aonlf-mv__grid {
+            grid-template-columns: 1fr;
+        }
+
+        .aonlf-mv__media {
+            min-height: 18em;
+        }
+
+        .aonlf-donate-block__grid {
+            grid-template-columns: 1fr;
+        }
+
+        .aonlf-donate-block__media {
+            min-height: 16em;
+        }
+
+        .aonlf-who__grid,
+        .aonlf-impact__grid,
+        .aonlf-give__grid {
+            grid-template-columns: 1fr;
+            gap: 2em;
+        }
+
+        .aonlf-who__media,
+        .aonlf-impact__media,
+        .aonlf-give__media {
+            aspect-ratio: 16 / 9;
+        }
+
+        .aonlf-footer__grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .aonlf section {
+            padding: 3em 1.75em;
+        }
+
+        .aonlf-hero {
+            height: 32em;
+        }
+
+        .aonlf-slide__content {
+            padding: 0 1.75em;
+        }
+
+        .aonlf-hero__arrow {
+            display: none;
+        }
+
+        .aonlf-mv__text,
+        .aonlf-donate-block__text {
+            padding: 2.5em 1.75em;
+        }
+
+        .aonlf-floating-donate {
+            right: 1em;
+            bottom: 1em;
+        }
+
+        .aonlf-news {
+            padding: 1.5em 1.75em;
+        }
+
+        .aonlf-news__inner {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.5em;
+        }
+
+        .aonlf-news__link {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .aonlf-who__group {
+            flex-direction: column;
+            gap: 0.25em;
+        }
+
+        .aonlf-give__row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5em;
+        }
+
+        .aonlf-footer {
+            padding: 2.5em 1.75em 1.5em;
+        }
+
+        .aonlf-footer__grid {
+            grid-template-columns: 1fr;
+            gap: 2em;
+        }
+
+        .aonlf-footer__bottom {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .aonlf-slide {
+            transition: none;
+        }
+
+        .is-active .aonlf-slide__body > * {
+            animation: none;
+        }
+    }
+</style>
+
+<div class="aonlf">
+
+    <h1 class="sr-only">AONL Foundation — Advancing Nursing Leadership Through Research and Education</h1>
+
+    <!-- ════════════════════════════════════════════
+   HERO SLIDER (max 3 slides)
+   CTA secundarios apuntan a subpáginas — ajustar rutas reales
+════════════════════════════════════════════ -->
+    <section class="aonlf-hero" aria-roledescription="carousel" aria-label="AONL Foundation highlights">
+
+        <div class="aonlf-slide is-active" data-slide-index="0">
+            <div class="aonlf-slide__media">
+                <img class="aonlf-img" src="https://images.unsplash.com/photo-1516841273335-e39b37888115?q=80&w=1600&auto=format&fit=crop" alt="Equipo de profesionales de enfermería caminando por un pasillo de hospital">
+            </div>
+            <div class="aonlf-slide__scrim" aria-hidden="true"></div>
+            <div class="aonlf-slide__content">
+                <div class="aonlf-slide__body">
+                    <span class="aonlf-slide__eyebrow">AONL Foundation</span>
+                    <p class="aonlf-slide__title">Advancing a <em>Healthier Tomorrow</em> Through Nursing Leadership</p>
+                    <p class="aonlf-slide__text">
+                        The AONL Foundation funds the research, education and leadership programs that
+                        shape the future of nursing. Your support bridges science and practice for nurse
+                        leaders nationwide.
+                    </p>
+                    <div class="aonlf-slide__ctas">
+                        <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+                            Donate Now
+                        </a>
+                        <!-- Ir a subpágina de Misión y Visión (ajustar ruta real) -->
+                        <a class="aonlf-btn aonlf-btn--outline" href="/mission-vision">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aonlf-slide" data-slide-index="1">
+            <div class="aonlf-slide__media">
+                <img class="aonlf-img" src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=1600&auto=format&fit=crop" alt="Investigadora revisando resultados en un laboratorio">
+            </div>
+            <div class="aonlf-slide__scrim" aria-hidden="true"></div>
+            <div class="aonlf-slide__content">
+                <div class="aonlf-slide__body">
+                    <span class="aonlf-slide__eyebrow">Scholarships &amp; Research</span>
+                    <p class="aonlf-slide__title">Fueling the <em>Next Generation</em> of Nurse Leaders</p>
+                    <p class="aonlf-slide__text">
+                        Hundreds of donors came together to fund scholarships, research and leadership
+                        development. Every gift directly strengthens nursing leadership nationwide.
+                    </p>
+                    <div class="aonlf-slide__ctas">
+                        <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+                            Donate Now
+                        </a>
+                        <!-- Ir a subpágina de Nuestro Impacto (ajustar ruta real) -->
+                        <a class="aonlf-btn aonlf-btn--outline" href="/our-impact">
+                            See Our Impact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aonlf-slide" data-slide-index="2">
+            <div class="aonlf-slide__media">
+                <img class="aonlf-img" src="https://images.unsplash.com/photo-1691139601099-932c01ec198b?q=80&w=1600&auto=format&fit=crop" alt="Dos profesionales de la salud conversando, mentoría entre colegas">
+            </div>
+            <div class="aonlf-slide__scrim" aria-hidden="true"></div>
+            <div class="aonlf-slide__content">
+                <div class="aonlf-slide__body">
+                    <span class="aonlf-slide__eyebrow">Get Involved</span>
+                    <p class="aonlf-slide__title">Your Gift Builds a <em>Sustainable Future</em> for Nursing Leadership</p>
+                    <p class="aonlf-slide__text">
+                        From one-time gifts to corporate partnerships, there are many ways to support
+                        nursing leadership for years to come.
+                    </p>
+                    <div class="aonlf-slide__ctas">
+                        <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+                            Donate Now
+                        </a>
+                        <!-- Ir a subpágina de Ways to Give (ajustar ruta real) -->
+                        <a class="aonlf-btn aonlf-btn--outline" href="/ways-to-give">
+                            Ways to Give
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="aonlf-hero__arrow aonlf-hero__arrow--prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+        </button>
+        <button class="aonlf-hero__arrow aonlf-hero__arrow--next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+        </button>
+
+        <div class="aonlf-hero__dots" role="tablist" aria-label="Slide navigation">
+            <button class="aonlf-hero__dot is-active" type="button" data-slide-target="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button class="aonlf-hero__dot" type="button" data-slide-target="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button class="aonlf-hero__dot" type="button" data-slide-target="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   PERSISTENT DONATE CTA
+════════════════════════════════════════════ -->
+    <div class="aonlf-floating-donate">
+        <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" /></svg>
+            Donate Now
+        </a>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+   FOUNDATION BULLETIN / NEWS
+════════════════════════════════════════════ -->
+    <section class="aonlf-news" id="bulletin">
+        <div class="aonlf-news__inner">
+            <div class="aonlf-news__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4Z" /><path d="M4 4 2 6v13a2 2 0 0 0 2 2" /><path d="M9 8h6M9 12h6M9 16h3" /></svg>
+            </div>
+            <div class="aonlf-news__body">
+                <span class="aonlf-news__eyebrow">Foundation News</span>
+                <p class="aonlf-news__headline">Read the Latest Foundation Bulletin</p>
+                <p class="aonlf-news__text">The Foundation Bulletin is a newsletter that shares the latest updates from the AONL Foundation.</p>
+            </div>
+            <a class="aonlf-news__link" href="https://sponsors.aha.org/index.php/email/emailWebview?email=NzEwLVpMTC02NTEAAAGjcUyQYUJOb5YbHGc35CS3pU5HXYbSTBv7ukNX4ESmz8k9cnibNa3AfEIlw2pI6uY9ysnnyVJW2Kn1PSB5cExjyLR740TVy00KFQ0" target="_blank" rel="noopener">
+                Read the Bulletin
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   MISSION & VISION
+════════════════════════════════════════════ -->
+    <section class="aonlf-mv" id="mission-vision">
+        <div class="aonlf-mv__grid">
+            <div class="aonlf-mv__media">
+                <img class="aonlf-img" src="https://images.unsplash.com/photo-1590611936760-eeb9bc598548?q=80&w=1200&auto=format&fit=crop" alt="Profesional de enfermería con mascarilla en un entorno clínico">
+            </div>
+            <div class="aonlf-mv__text">
+                <div class="aonlf-mv__block">
+                    <span class="aonlf-mv__label">Our Mission</span>
+                    <p class="aonlf-mv__statement">
+                        The AONL Foundation provides resources that create opportunities to bridge
+                        science and practice to shape the future of nursing leadership.
+                    </p>
+                </div>
+                <div class="aonlf-mv__block">
+                    <span class="aonlf-mv__label">Our Vision</span>
+                    <p class="aonlf-mv__statement">
+                        A healthier tomorrow, advanced through nursing leadership.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   WHO WE SUPPORT
+   (Draft copy — pending Tina & Erica's content worksheet)
+════════════════════════════════════════════ -->
+    <section id="who-we-support">
+        <div class="aonlf-inner">
+            <div class="aonlf-who__grid">
+                <div>
+                    <div class="section-kicker">
+                        <span class="section-kicker__line"></span>
+                        <span class="section-kicker__text">Who We Support</span>
+                    </div>
+                    <h2 class="section-title">Nurse Leaders at Every Stage</h2>
+                    <p class="aonlf-who__intro">
+                        Foundation-funded programs reach nurse leaders across every stage of their
+                        careers — from those just stepping into leadership to seasoned executives
+                        shaping care for entire health systems.
+                    </p>
+                    <div class="aonlf-who__groups">
+                        <div class="aonlf-who__group">
+                            <span class="aonlf-who__group-name">Nurse Executives</span>
+                            <span class="aonlf-who__group-desc">CNOs and senior leaders setting strategy for their organizations.</span>
+                        </div>
+                        <div class="aonlf-who__group">
+                            <span class="aonlf-who__group-name">Nurse Managers &amp; Directors</span>
+                            <span class="aonlf-who__group-desc">Leaders guiding day-to-day care delivery and team performance.</span>
+                        </div>
+                        <div class="aonlf-who__group">
+                            <span class="aonlf-who__group-name">Emerging Nurse Leaders</span>
+                            <span class="aonlf-who__group-desc">Nurses stepping into their first formal leadership roles.</span>
+                        </div>
+                        <div class="aonlf-who__group">
+                            <span class="aonlf-who__group-name">Nurse Researchers</span>
+                            <span class="aonlf-who__group-desc">Scholars advancing the evidence base behind nursing leadership.</span>
+                        </div>
+                    </div>
+                    <p class="aonlf-who__impact">Together, they're building a stronger, more resilient nursing workforce.</p>
+                </div>
+                <div class="aonlf-who__media">
+                    <img class="aonlf-img" src="https://images.unsplash.com/photo-1631815590058-860e4f83c1e8?q=80&w=1200&auto=format&fit=crop" alt="Profesional de salud tomando la presión arterial a una paciente">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   OUR IMPACT
+   (Ver nota debajo del código sobre la versión de la
+   captura anotada — no coincide 1:1 con esta sección)
+════════════════════════════════════════════ -->
+    <section class="tint" id="impact">
+        <div class="aonlf-inner">
+            <div class="aonlf-impact__grid">
+                <div class="aonlf-impact__media">
+                    <img class="aonlf-img" src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1200&auto=format&fit=crop" alt="Enfermera sosteniendo un estetoscopio en forma de corazón">
+                </div>
+                <div>
+                    <div class="section-kicker">
+                        <span class="section-kicker__line"></span>
+                        <span class="section-kicker__text">Our Impact</span>
+                    </div>
+                    <h2 class="section-title">Programs Funded by Your Generosity</h2>
+                    <p class="section-subtitle" style="margin-bottom:1.75em;">
+                        From research to mentorship, Foundation-funded programs help nurse leaders grow,
+                        lead and inspire the next generation.
+                    </p>
+
+                    <div class="aonlf-impact__list">
+                        <div class="aonlf-impact__item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M15.5 14a5.5 5.5 0 1 0-7 0c.7.6 1.3 1.5 1.5 2.5h4c.2-1 .8-1.9 1.5-2.5Z" /></svg>
+                            <div>
+                                <p class="aonlf-impact__item-title">Research Grants</p>
+                                <p class="aonlf-impact__item-desc">Funding studies that advance nursing leadership and health systems science.</p>
+                            </div>
+                        </div>
+                        <div class="aonlf-impact__item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" /></svg>
+                            <div>
+                                <p class="aonlf-impact__item-title">Educational Scholarships</p>
+                                <p class="aonlf-impact__item-desc">Helping nurse leaders attend AONL education events and grow their careers.</p>
+                            </div>
+                        </div>
+                        <div class="aonlf-impact__item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 8v4l2.5 2.5" /></svg>
+                            <div>
+                                <p class="aonlf-impact__item-title">Think Tank &amp; Symposium</p>
+                                <p class="aonlf-impact__item-desc">Convening nurse leaders to tackle new and important topics facing the profession.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ir a subpágina de Nuestro Impacto (ajustar ruta real) -->
+                    <a class="aonlf-give-card__link" href="/our-impact" style="font-weight:600;">See our full impact →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   WAYS TO GIVE
+   Corporate Partnership y Tribute & Planned Gifts ahora
+   apuntan a subpáginas (con el mailto disponible dentro
+   de cada una) en lugar de abrir el cliente de correo
+   directamente desde el homepage.
+════════════════════════════════════════════ -->
+    <section class="gold-tint" id="ways-to-give">
+        <div class="aonlf-inner">
+            <div class="section-kicker section-kicker--gold">
+                <span class="section-kicker__line"></span>
+                <span class="section-kicker__text">Ways to Give</span>
+            </div>
+            <h2 class="section-title">Choose the Way You'd Like to Support Nurse Leaders</h2>
+            <p class="section-subtitle">
+                Every gift — however you choose to give — funds scholarships, research and leadership
+                programs for nurses nationwide.
+            </p>
+
+            <div class="aonlf-give__grid">
+                <div class="aonlf-give__media">
+                    <img class="aonlf-img" src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=1200&auto=format&fit=crop" alt="Profesional de la salud sosteniendo un estetoscopio">
+                </div>
+                <div class="aonlf-give__list">
+                    <div class="aonlf-give__row">
+                        <div>
+                            <p class="aonlf-give__row-title">One-Time Gift</p>
+                            <p class="aonlf-give__row-desc">Make an immediate impact with a single donation of any size.</p>
+                        </div>
+                        <a class="aonlf-give__row-link" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">Give now →</a>
+                    </div>
+                    <div class="aonlf-give__row">
+                        <div>
+                            <p class="aonlf-give__row-title">Monthly Giving</p>
+                            <p class="aonlf-give__row-desc">Provide sustained support with a recurring gift that grows our impact over time.</p>
+                        </div>
+                        <a class="aonlf-give__row-link" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">Give monthly →</a>
+                    </div>
+                    <div class="aonlf-give__row">
+                        <div>
+                            <p class="aonlf-give__row-title">Corporate Partnership</p>
+                            <p class="aonlf-give__row-desc">Partner with the Foundation to fund research, scholarships and events.</p>
+                        </div>
+                        <!-- Subpágina de Alianzas Corporativas (ajustar ruta real) -->
+                        <a class="aonlf-give__row-link" href="/ways-to-give/corporate-partnership">Contact us →</a>
+                    </div>
+                    <div class="aonlf-give__row">
+                        <div>
+                            <p class="aonlf-give__row-title">Tribute &amp; Planned Gifts</p>
+                            <p class="aonlf-give__row-desc">Honor a nurse leader or include the Foundation in your long-term giving plans.</p>
+                        </div>
+                        <!-- Subpágina de Donaciones en Honor y Planificadas (ajustar ruta real) -->
+                        <a class="aonlf-give__row-link" href="/ways-to-give/tribute-and-planned-gifts">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   CLOSING CTA — reusable donation block
+════════════════════════════════════════════ -->
+    <section class="aonlf-donate-block" id="give">
+        <div class="aonlf-donate-block__grid">
+            <div class="aonlf-donate-block__text">
+                <span class="aonlf-donate-block__eyebrow">Give Today</span>
+                <h2 class="aonlf-donate-block__headline">Help Shape the Future of Nursing Leadership</h2>
+                <p class="aonlf-donate-block__body">
+                    Your gift funds the research, scholarships and leadership programs that prepare nurse
+                    leaders to build a healthier tomorrow. Every contribution — of any size — makes a
+                    difference.
+                </p>
+                <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+                    Donate Now
+                </a>
+            </div>
+            <div class="aonlf-donate-block__media">
+                <img class="aonlf-img" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1200&auto=format&fit=crop" alt="Enfermero sonriendo con un estetoscopio alrededor del cuello">
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   FOOTER
+   (Quick Links + compliance content are placeholders —
+   final items pending Tina & Erica / nav simplification)
+════════════════════════════════════════════ -->
+    <footer class="aonlf-footer">
+        <div class="aonlf-inner">
+            <div class="aonlf-footer__grid">
+                <div>
+                    <p class="aonlf-footer__brand">AONL Foundation</p>
+                    <p class="aonlf-footer__tagline">
+                        Advancing a healthier tomorrow through nursing leadership — funding research,
+                        scholarships and leadership development nationwide.
+                    </p>
+                </div>
+                <div>
+                    <p class="aonlf-footer__heading">Quick Links</p>
+                    <ul class="aonlf-footer__links">
+                        <li><a href="#mission-vision">Mission &amp; Vision</a></li>
+                        <li><a href="#who-we-support">Who We Support</a></li>
+                        <li><a href="#impact">Our Impact</a></li>
+                        <li><a href="#ways-to-give">Ways to Give</a></li>
+                        <li><a href="#bulletin">Foundation Bulletin</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="aonlf-footer__heading">Get Involved</p>
+                    <ul class="aonlf-footer__links">
+                        <li><a href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">Donate Now</a></li>
+                        <li><a href="/ways-to-give/corporate-partnership">Corporate Partnership</a></li>
+                        <li><a href="/ways-to-give/tribute-and-planned-gifts">Tribute &amp; Planned Gifts</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="aonlf-footer__bottom">
+                <p class="aonlf-footer__copy">© 2026 AONL Foundation. All rights reserved.</p>
+                <ul class="aonlf-footer__legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Charitable Registrations</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        function initHeroSlider(root) {
+            var slides = root.querySelectorAll('.aonlf-slide');
+            var dots = root.querySelectorAll('.aonlf-hero__dot');
+            var prevBtn = root.querySelector('.aonlf-hero__arrow--prev');
+            var nextBtn = root.querySelector('.aonlf-hero__arrow--next');
+            var total = slides.length;
+            var current = 0;
+            var timer = null;
+            var intervalMs = 7000;
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function show(index) {
+                current = (index + total) % total;
+                for (var i = 0; i < total; i++) {
+                    var isActive = i === current;
+                    slides[i].classList.toggle('is-active', isActive);
+                    slides[i].setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                }
+                for (var j = 0; j < dots.length; j++) {
+                    var dotActive = j === current;
+                    dots[j].classList.toggle('is-active', dotActive);
+                    dots[j].setAttribute('aria-selected', dotActive ? 'true' : 'false');
+                }
+            }
+
+            function next() { show(current + 1); }
+            function prev() { show(current - 1); }
+
+            function stopAuto() {
+                if (timer) {
+                    window.clearInterval(timer);
+                    timer = null;
+                }
+            }
+
+            function startAuto() {
+                if (reduceMotion || total < 2) return;
+                stopAuto();
+                timer = window.setInterval(next, intervalMs);
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function () { next(); startAuto(); });
+            }
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function () { prev(); startAuto(); });
+            }
+            for (var k = 0; k < dots.length; k++) {
+                dots[k].addEventListener('click', function (e) {
+                    var idx = parseInt(e.currentTarget.getAttribute('data-slide-target'), 10);
+                    show(idx);
+                    startAuto();
+                });
+            }
+
+            root.addEventListener('mouseenter', stopAuto);
+            root.addEventListener('mouseleave', startAuto);
+            root.addEventListener('focusin', stopAuto);
+            root.addEventListener('focusout', startAuto);
+
+            show(0);
+            startAuto();
+        }
+
+        function initPersistentDonate() {
+            var cta = document.querySelector('.aonlf-floating-donate');
+            var hero = document.querySelector('.aonlf-hero');
+            if (!cta || !hero) return;
+
+            if (!('IntersectionObserver' in window)) {
+                cta.classList.add('is-visible');
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        cta.classList.remove('is-visible');
+                    } else {
+                        cta.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0 });
+
+            observer.observe(hero);
+        }
+
+        function initAonlf() {
+            var hero = document.querySelector('.aonlf-hero');
+            if (hero) initHeroSlider(hero);
+            initPersistentDonate();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAonlf);
+        } else {
+            initAonlf();
+        }
+    })();
+    </script>
+
+</div>
