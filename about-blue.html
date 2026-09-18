@@ -1,0 +1,451 @@
+<!--
+  AONL Foundation — About (skeleton / lorem ipsum)
+  Basado en la paleta azul original. Estructura pensada
+  para reemplazarse por contenido real más adelante:
+  Foundation Governance, Honor Roll, Foundation Staff,
+  Biannual Reports, Foundation Committees, Newsletters,
+  FAQ y MLGs (según el mapa del sitio).
+-->
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+        --navy: #002855;
+        --navy-mid: #003087;
+        --accent: #C8102E;
+        --sky: #7EBFFF;
+        --gold: #B08A2E;
+        --gold-dark: #8C6B1F;
+        --gold-tint: #F7F0E1;
+        --white: #ffffff;
+        --off-white: #F4F6F9;
+        --text-body: #3a3d4a;
+        --text-muted: #6b7280;
+        --border: rgba(0, 40, 85, 0.12);
+        --serif: "Univers", serif;
+        --sans: "Univers", sans-serif;
+    }
+
+    .aonlf { font-family: var(--sans); background: var(--white); color: var(--text-body); -webkit-font-smoothing: antialiased; }
+    .aonlf *, .aonlf *::before, .aonlf *::after { box-sizing: border-box; }
+    .aonlf .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    .aonlf section { padding: 4.5em 3.5em; }
+    .aonlf section.tint { background: var(--off-white); }
+    .aonlf section.gold-tint { background: var(--gold-tint); }
+    .aonlf .aonlf-inner { max-width: 1180px; margin: 0 auto; }
+
+    .aonlf .section-kicker { display: flex; align-items: center; gap: 0.625em; margin-bottom: 0.9em; }
+    .aonlf .section-kicker__line { width: 1.75em; height: 0.1875em; background: var(--accent); border-radius: 0.125em; flex-shrink: 0; }
+    .aonlf .section-kicker--gold .section-kicker__line { background: var(--gold); }
+    .aonlf .section-kicker__text { font-size: 0.6875em; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy-mid); }
+    .aonlf .section-title { font-family: var(--serif); font-size: clamp(1.6em, 2.8vw, 2.25em); font-weight: 400; color: var(--navy); line-height: 1.15; margin-bottom: 0.5em; }
+    .aonlf .section-subtitle { font-size: 0.9375em; color: var(--text-muted); line-height: 1.75; max-width: 42em; }
+
+    .aonlf-btn { display: inline-flex; align-items: center; gap: 0.5em; font-size: 0.9375em; font-weight: 600; padding: 0.875em 1.75em; border-radius: 0.5em; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s; border: 1.5px solid transparent; cursor: pointer; }
+    .aonlf-btn:hover { transform: translateY(-0.1em); }
+    .aonlf-btn--gold { background: var(--gold); color: var(--white); }
+    .aonlf-btn--gold:hover { background: var(--gold-dark); }
+    .aonlf-btn--outline { background: transparent; border-color: rgba(255,255,255,0.45); color: var(--white); }
+    .aonlf-btn--outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+    .aonlf-btn--outline-navy { background: transparent; border-color: var(--border); color: var(--navy-mid); }
+    .aonlf-btn--outline-navy:hover { border-color: var(--navy); background: var(--off-white); }
+
+    /* ════════════════════════════════════════════
+   TOP NAV (idéntico al de las demás páginas)
+════════════════════════════════════════════ */
+    .aonlf-nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); }
+    .aonlf-nav__inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5em; padding: 1.1em 3.5em; }
+    .aonlf-nav__brand { display: flex; align-items: center; gap: 0.6em; font-family: var(--serif); font-size: 1.15em; color: var(--navy); text-decoration: none; flex-shrink: 0; }
+    .aonlf-nav__brand-mark { width: 1.85em; height: 1.85em; border-radius: 50%; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 0.6875em; font-weight: 700; letter-spacing: 0.02em; flex-shrink: 0; }
+    .aonlf-nav__links { list-style: none; display: flex; align-items: center; gap: 2em; flex-wrap: wrap; }
+    .aonlf-nav__links a { font-size: 0.875em; font-weight: 600; color: var(--navy-mid); text-decoration: none; letter-spacing: 0.01em; white-space: nowrap; }
+    .aonlf-nav__links a:hover { color: var(--navy); }
+    .aonlf-nav__links a.is-active { color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 0.3em; }
+    .aonlf-nav__cta { flex-shrink: 0; }
+    .aonlf-nav__cta .aonlf-btn { padding: 0.6em 1.4em; font-size: 0.875em; }
+    @media (max-width: 900px) {
+        .aonlf-nav__inner { flex-wrap: wrap; row-gap: 0.75em; padding: 1em 1.75em; }
+        .aonlf-nav__links { order: 3; width: 100%; justify-content: flex-start; gap: 1.25em; overflow-x: auto; }
+    }
+
+    /* ════════════════════════════════════════════
+   PAGE HEADER (banner simple, no slider — para
+   subpáginas internas)
+════════════════════════════════════════════ */
+    .aonlf-pagehead { position: relative; background: var(--navy); overflow: hidden; }
+    .aonlf-pagehead__media { position: absolute; inset: 0; }
+    .aonlf-pagehead__media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.28; }
+    .aonlf-pagehead__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,40,85,0.96) 0%, rgba(0,40,85,0.88) 55%, rgba(0,40,85,0.75) 100%); }
+    .aonlf-pagehead__inner { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; padding: 3.5em 3.5em 3em; }
+    .aonlf-pagehead__crumbs { display: flex; align-items: center; gap: 0.5em; font-size: 0.8125em; font-weight: 600; color: rgba(255,255,255,0.65); margin-bottom: 1.25em; }
+    .aonlf-pagehead__crumbs a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .aonlf-pagehead__crumbs a:hover { color: var(--white); }
+    .aonlf-pagehead__title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9em, 3.4vw, 2.6em); color: var(--white); margin-bottom: 0.5em; }
+    .aonlf-pagehead__text { font-size: 1em; line-height: 1.75; color: rgba(255,255,255,0.85); max-width: 42em; }
+
+    /* ════════════════════════════════════════════
+   INTRO (misión resumida + imagen)
+════════════════════════════════════════════ */
+    .aonlf-about-intro__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3.5em; align-items: center; }
+    .aonlf-about-intro__media { aspect-ratio: 4/3; border-radius: 0.875em; overflow: hidden; }
+    .aonlf-about-intro__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .aonlf-about-intro__body p { font-size: 1em; line-height: 1.8; color: var(--text-body); margin-bottom: 1.25em; }
+    .aonlf-about-intro__body p:last-child { margin-bottom: 0; }
+
+    /* ════════════════════════════════════════════
+   ABOUT CARD GRID
+   (Foundation Governance, Honor Roll, Staff, Biannual
+   Reports, Committees, Newsletters, FAQ, MLGs)
+════════════════════════════════════════════ */
+    .aonlf-about-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 2.5em; }
+    .aonlf-about-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: 0.875em; padding: 1.75em; transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .aonlf-about-card:hover { border-color: var(--gold); transform: translateY(-0.2em); box-shadow: 0 0.75em 1.75em rgba(0,40,85,0.08); }
+    .aonlf-about-card__icon { width: 2.75em; height: 2.75em; border-radius: 50%; background: var(--gold-tint); color: var(--gold-dark); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1em; flex-shrink: 0; }
+    .aonlf-about-card__icon svg { width: 1.375em; height: 1.375em; }
+    .aonlf-about-card__title { font-family: var(--serif); font-size: 1.1em; color: var(--navy); margin-bottom: 0.5em; }
+    .aonlf-about-card__desc { font-size: 0.875em; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25em; flex: 1; }
+    .aonlf-about-card__link { display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.8125em; font-weight: 600; color: var(--gold-dark); text-decoration: none; }
+    .aonlf-about-card__link:hover { text-decoration: underline; }
+
+    /* ════════════════════════════════════════════
+   FAQ ACCORDION (esqueleto)
+════════════════════════════════════════════ */
+    .aonlf-faq { max-width: 48em; margin-top: 2em; }
+    .aonlf-faq__item { border-bottom: 1px solid var(--border); }
+    .aonlf-faq__q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1em; background: none; border: none; padding: 1.25em 0; font-family: var(--serif); font-size: 1.05em; color: var(--navy); text-align: left; cursor: pointer; }
+    .aonlf-faq__q svg { width: 1.1em; height: 1.1em; color: var(--gold-dark); flex-shrink: 0; transition: transform .2s; }
+    .aonlf-faq__item.is-open .aonlf-faq__q svg { transform: rotate(45deg); }
+    .aonlf-faq__a { font-size: 0.9em; color: var(--text-muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .25s ease; }
+    .aonlf-faq__item.is-open .aonlf-faq__a { max-height: 20em; padding-bottom: 1.25em; }
+
+    /* ════════════════════════════════════════════
+   FOOTER (idéntico al resto del sitio)
+════════════════════════════════════════════ */
+    .aonlf-footer { background: var(--navy); padding: 3.5em 3.5em 2em; }
+    .aonlf-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 3em; padding-bottom: 2.5em; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .aonlf-footer__brand { font-family: var(--serif); font-size: 1.15em; color: var(--white); margin-bottom: 0.75em; }
+    .aonlf-footer__tagline { font-size: 0.875em; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 22em; }
+    .aonlf-footer__heading { font-size: 0.6875em; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1em; }
+    .aonlf-footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.75em; }
+    .aonlf-footer__links a { font-size: 0.875em; color: rgba(255,255,255,0.75); text-decoration: none; }
+    .aonlf-footer__links a:hover { color: var(--white); text-decoration: underline; }
+    .aonlf-footer__bottom { padding-top: 1.5em; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1em; }
+    .aonlf-footer__copy { font-size: 0.8125em; color: rgba(255,255,255,0.55); }
+    .aonlf-footer__legal { list-style: none; display: flex; flex-wrap: wrap; gap: 1.25em; }
+    .aonlf-footer__legal a { font-size: 0.8125em; color: rgba(255,255,255,0.55); text-decoration: none; }
+    .aonlf-footer__legal a:hover { color: var(--white); text-decoration: underline; }
+
+    /* ════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════ */
+    @media (max-width: 1000px) {
+        .aonlf-about-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+        .aonlf-about-intro__grid { grid-template-columns: 1fr; gap: 2em; }
+        .aonlf-footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .aonlf section { padding: 3em 1.75em; }
+        .aonlf-pagehead__inner { padding: 2.5em 1.75em 2em; }
+        .aonlf-about-grid { grid-template-columns: 1fr; }
+        .aonlf-footer { padding: 2.5em 1.75em 1.5em; }
+        .aonlf-footer__grid { grid-template-columns: 1fr; gap: 2em; }
+        .aonlf-footer__bottom { flex-direction: column; align-items: flex-start; }
+    }
+</style>
+
+<div class="aonlf">
+
+    <h1 class="sr-only">About the AONL Foundation</h1>
+
+    <!-- ════════════════════════════════════════════
+   TOP NAV — "About" marcado como activo
+════════════════════════════════════════════ -->
+    <nav class="aonlf-nav" aria-label="Main navigation">
+        <div class="aonlf-nav__inner">
+            <a class="aonlf-nav__brand" href="/">
+                <span class="aonlf-nav__brand-mark">AF</span>
+                AONL Foundation
+            </a>
+            <ul class="aonlf-nav__links">
+                <li><a href="/about" class="is-active">About</a></li>
+                <li><a href="/resources-for-nurses">Resources for Nurses</a></li>
+                <li><a href="/ways-to-support">Ways to Support</a></li>
+                <li><a href="/impacting-nurses">Impacting Nurses</a></li>
+            </ul>
+            <div class="aonlf-nav__cta">
+                <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+                    Donate Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ════════════════════════════════════════════
+   PAGE HEADER
+════════════════════════════════════════════ -->
+    <header class="aonlf-pagehead">
+        <div class="aonlf-pagehead__media">
+            <img src="https://images.unsplash.com/photo-1516841273335-e39b37888115?q=80&w=1600&auto=format&fit=crop" alt="">
+        </div>
+        <div class="aonlf-pagehead__scrim" aria-hidden="true"></div>
+        <div class="aonlf-pagehead__inner">
+            <div class="aonlf-pagehead__crumbs">
+                <a href="/">Home</a>
+                <span>／</span>
+                <span>About</span>
+            </div>
+            <h2 class="aonlf-pagehead__title">About the AONL Foundation</h2>
+            <p class="aonlf-pagehead__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua, presented here as placeholder copy
+                for the Foundation's governance, people, reporting and FAQ content.
+            </p>
+        </div>
+    </header>
+
+    <!-- ════════════════════════════════════════════
+   INTRO
+════════════════════════════════════════════ -->
+    <section id="intro">
+        <div class="aonlf-inner">
+            <div class="aonlf-about-intro__grid">
+                <div class="aonlf-about-intro__body">
+                    <div class="section-kicker">
+                        <span class="section-kicker__line"></span>
+                        <span class="section-kicker__text">Who We Are</span>
+                    </div>
+                    <h2 class="section-title">Lorem Ipsum Dolor Sit Amet</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim
+                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </p>
+                    <p>
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div class="aonlf-about-intro__media">
+                    <img src="https://images.unsplash.com/photo-1590611936760-eeb9bc598548?q=80&w=1200&auto=format&fit=crop" alt="Placeholder — reemplazar por foto real del equipo o evento de la Foundation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   ABOUT CARD GRID
+   Foundation Governance, Honor Roll, Foundation Staff,
+   Biannual Reports, Foundation Committees, Newsletters,
+   FAQ, MLGs
+════════════════════════════════════════════ -->
+    <section class="tint" id="about-links">
+        <div class="aonlf-inner">
+            <div class="section-kicker">
+                <span class="section-kicker__line"></span>
+                <span class="section-kicker__text">Explore</span>
+            </div>
+            <h2 class="section-title">Foundation Governance &amp; Resources</h2>
+            <p class="section-subtitle">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit, placeholder copy for the
+                overview of governance and reporting pages linked below.
+            </p>
+
+            <div class="aonlf-about-grid">
+
+                <a class="aonlf-about-card" href="/about/foundation-governance">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7v2h18V7Z"/><path d="M5 9v9M9 9v9M15 9v9M19 9v9"/><path d="M3 21h18"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">Foundation Governance</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+                <a class="aonlf-about-card" href="/about/honor-roll">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="m8.5 13.5-1.5 7 5-3 5 3-1.5-7"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">Honor Roll</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+                <a class="aonlf-about-card" href="/about/foundation-staff">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">Foundation Staff</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+                <a class="aonlf-about-card" href="/about/biannual-reports">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">Biannual Reports</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+                <a class="aonlf-about-card" href="/about/foundation-committees">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M2 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"/><path d="M17 13a5 5 0 0 1 5 5v1"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">Foundation Committees</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+                <a class="aonlf-about-card" href="/about/newsletters">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4Z"/><path d="M4 4 2 6v13a2 2 0 0 0 2 2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">Newsletters</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+                <a class="aonlf-about-card" href="/about/faq">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 1.9-2.4 3.5"/><path d="M12 17h.01"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">FAQ</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+                <a class="aonlf-about-card" href="/about/mlgs">
+                    <div class="aonlf-about-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+                    </div>
+                    <p class="aonlf-about-card__title">MLGs</p>
+                    <p class="aonlf-about-card__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <span class="aonlf-about-card__link">Learn more →</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   FAQ PREVIEW (esqueleto — 3 preguntas de ejemplo,
+   la página completa de FAQ vive en /about/faq)
+════════════════════════════════════════════ -->
+    <section id="faq-preview">
+        <div class="aonlf-inner">
+            <div class="section-kicker section-kicker--gold">
+                <span class="section-kicker__line"></span>
+                <span class="section-kicker__text">FAQ</span>
+            </div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit, placeholder intro for the
+                FAQ preview shown here on the About page.
+            </p>
+
+            <div class="aonlf-faq" id="faq-accordion">
+                <div class="aonlf-faq__item is-open">
+                    <button class="aonlf-faq__q" type="button" aria-expanded="true">
+                        Lorem ipsum dolor sit amet consectetur?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="aonlf-faq__a">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </div>
+                <div class="aonlf-faq__item">
+                    <button class="aonlf-faq__q" type="button" aria-expanded="false">
+                        Ut enim ad minim veniam quis nostrud?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="aonlf-faq__a">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur.
+                    </div>
+                </div>
+                <div class="aonlf-faq__item">
+                    <button class="aonlf-faq__q" type="button" aria-expanded="false">
+                        Excepteur sint occaecat cupidatat non proident?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div class="aonlf-faq__a">
+                        Sunt in culpa qui officia deserunt mollit anim id est laborum, lorem
+                        ipsum dolor sit amet.
+                    </div>
+                </div>
+            </div>
+
+            <a class="aonlf-btn aonlf-btn--outline-navy" href="/about/faq" style="margin-top:2em;">See all FAQs</a>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ -->
+    <footer class="aonlf-footer">
+        <div class="aonlf-inner">
+            <div class="aonlf-footer__grid">
+                <div>
+                    <p class="aonlf-footer__brand">AONL Foundation</p>
+                    <p class="aonlf-footer__tagline">
+                        Advancing a healthier tomorrow through nursing leadership — funding research,
+                        scholarships and leadership development nationwide.
+                    </p>
+                </div>
+                <div>
+                    <p class="aonlf-footer__heading">About</p>
+                    <ul class="aonlf-footer__links">
+                        <li><a href="/about/foundation-governance">Foundation Governance</a></li>
+                        <li><a href="/about/foundation-staff">Foundation Staff</a></li>
+                        <li><a href="/about/foundation-committees">Foundation Committees</a></li>
+                        <li><a href="/about/honor-roll">Honor Roll</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="aonlf-footer__heading">Resources</p>
+                    <ul class="aonlf-footer__links">
+                        <li><a href="/about/biannual-reports">Biannual Reports</a></li>
+                        <li><a href="/about/newsletters">Newsletters</a></li>
+                        <li><a href="/about/faq">FAQ</a></li>
+                        <li><a href="/about/mlgs">MLGs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="aonlf-footer__bottom">
+                <p class="aonlf-footer__copy">© 2026 AONL Foundation. All rights reserved.</p>
+                <ul class="aonlf-footer__legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Charitable Registrations</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var items = document.querySelectorAll('#faq-accordion .aonlf-faq__item');
+        items.forEach(function (item) {
+            var btn = item.querySelector('.aonlf-faq__q');
+            btn.addEventListener('click', function () {
+                var isOpen = item.classList.contains('is-open');
+                items.forEach(function (i) {
+                    i.classList.remove('is-open');
+                    i.querySelector('.aonlf-faq__q').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    })();
+    </script>
+
+</div>

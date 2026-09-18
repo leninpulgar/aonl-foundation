@@ -1,4 +1,3 @@
-
 <style>
     *,
     *::before,
@@ -904,6 +903,57 @@
     }
 
     /* ════════════════════════════════════════════
+   NEWSLETTER (Bloomerang email sign-up embed)
+════════════════════════════════════════════ */
+    .aonlf-newsletter {
+        background: var(--navy);
+    }
+
+    .aonlf-newsletter__inner {
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .aonlf-newsletter__kicker {
+        font-size: 0.6875em;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75em;
+    }
+
+    .aonlf-newsletter__title {
+        font-family: var(--serif);
+        font-size: clamp(1.5em, 2.6vw, 2em);
+        font-weight: 400;
+        color: var(--white);
+        margin-bottom: 0.6em;
+    }
+
+    .aonlf-newsletter__text {
+        font-size: 0.9375em;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.82);
+        margin-bottom: 2em;
+    }
+
+    .aonlf-newsletter__form-wrap {
+        background: var(--white);
+        border-radius: 0.875em;
+        padding: 2em;
+        text-align: left;
+    }
+
+    .aonlf-newsletter__form-wrap h3 {
+        font-family: var(--serif);
+        font-weight: 400;
+        color: var(--navy);
+        margin-bottom: 0.75em;
+    }
+
+    /* ════════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════════ */
     .aonlf-footer {
@@ -1164,20 +1214,26 @@
 
         <div class="aonlf-slide is-active" data-slide-index="0">
             <div class="aonlf-slide__media">
-                <img class="aonlf-img" src="https://images.unsplash.com/photo-1516841273335-e39b37888115?q=80&w=1600&auto=format&fit=crop" alt="Equipo de profesionales de enfermería caminando por un pasillo de hospital">
+                <img class="aonlf-img" src="./imgs/example-3.PNG" alt="AONL Foundation award recognition on stage">
             </div>
             <div class="aonlf-slide__scrim" aria-hidden="true"></div>
             <div class="aonlf-slide__content">
                 <div class="aonlf-slide__body">
                     <span class="aonlf-slide__eyebrow">AONL Foundation</span>
-                    <p class="aonlf-slide__title">Advancing a <em>Healthier Tomorrow</em> Through Nursing Leadership</p>
+                    <p class="aonlf-slide__title">Who We Are</p>
                     <p class="aonlf-slide__text">
-                        The AONL Foundation funds the research, education and leadership programs that
-                        shape the future of nursing. Your support bridges science and practice for nurse
-                        leaders nationwide.
+                        The AONL Foundation provides resources that create opportunities to bridge science and practice to shape the future of nursing leadership.
+
+                        <br>
+                        <br>
+
+                        Our Mission is to provide resources that create opportunities to bridge science and practice to shape the future of nursing leadership. Our Vision is to advance nursing leadership through research and education.
                     </p>
                     <div class="aonlf-slide__ctas">
-                        <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+                        <!-- <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
+                            Donate Now
+                        </a> -->
+                        <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
                             Donate Now
                         </a>
                         <!-- Ir a subpágina de Misión y Visión (ajustar ruta real) -->
@@ -1191,16 +1247,15 @@
 
         <div class="aonlf-slide" data-slide-index="1">
             <div class="aonlf-slide__media">
-                <img class="aonlf-img" src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=1600&auto=format&fit=crop" alt="Investigadora revisando resultados en un laboratorio">
+                <img class="aonlf-img" src="./imgs/13_TUES 3-31-26 Exhit Hall & Power Session 930am-1030am-00051.jpg" alt="AONL Foundation booth at the exhibit hall">
             </div>
             <div class="aonlf-slide__scrim" aria-hidden="true"></div>
             <div class="aonlf-slide__content">
                 <div class="aonlf-slide__body">
                     <span class="aonlf-slide__eyebrow">Scholarships &amp; Research</span>
-                    <p class="aonlf-slide__title">Fueling the <em>Next Generation</em> of Nurse Leaders</p>
+                    <p class="aonlf-slide__title">Providing resources for nurse leaders</p>
                     <p class="aonlf-slide__text">
-                        Hundreds of donors came together to fund scholarships, research and leadership
-                        development. Every gift directly strengthens nursing leadership nationwide.
+                         View open scholarships and research grant opportunities.
                     </p>
                     <div class="aonlf-slide__ctas">
                         <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
@@ -1217,16 +1272,15 @@
 
         <div class="aonlf-slide" data-slide-index="2">
             <div class="aonlf-slide__media">
-                <img class="aonlf-img" src="https://images.unsplash.com/photo-1691139601099-932c01ec198b?q=80&w=1600&auto=format&fit=crop" alt="Dos profesionales de la salud conversando, mentoría entre colegas">
+                <img class="aonlf-img" src="./imgs/20_TUES 3-31-26 House of Bluse 630pm-830pm-00597.jpg" alt="Nurse leaders celebrating together at the AONL Foundation event">
             </div>
             <div class="aonlf-slide__scrim" aria-hidden="true"></div>
             <div class="aonlf-slide__content">
                 <div class="aonlf-slide__body">
-                    <span class="aonlf-slide__eyebrow">Get Involved</span>
-                    <p class="aonlf-slide__title">Your Gift Builds a <em>Sustainable Future</em> for Nursing Leadership</p>
+                    <span class="aonlf-slide__eyebrow">Join the Mission</span>
+                    <p class="aonlf-slide__title">Your support makes a difference</p>
                     <p class="aonlf-slide__text">
-                        From one-time gifts to corporate partnerships, there are many ways to support
-                        nursing leadership for years to come.
+                        Learn about the many ways to support the Foundation's mission today.
                     </p>
                     <div class="aonlf-slide__ctas">
                         <a class="aonlf-btn aonlf-btn--gold" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">
@@ -1274,9 +1328,9 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4Z" /><path d="M4 4 2 6v13a2 2 0 0 0 2 2" /><path d="M9 8h6M9 12h6M9 16h3" /></svg>
             </div>
             <div class="aonlf-news__body">
-                <span class="aonlf-news__eyebrow">Foundation News</span>
+                <span class="aonlf-news__eyebrow">News</span>
                 <p class="aonlf-news__headline">Read the Latest Foundation Bulletin</p>
-                <p class="aonlf-news__text">The Foundation Bulletin is a newsletter that shares the latest updates from the AONL Foundation.</p>
+                <p class="aonlf-news__text">The Foundation Bulletin is a quarterly newsletter that shares the latest updates.</p>
             </div>
             <a class="aonlf-news__link" href="https://sponsors.aha.org/index.php/email/emailWebview?email=NzEwLVpMTC02NTEAAAGjcUyQYUJOb5YbHGc35CS3pU5HXYbSTBv7ukNX4ESmz8k9cnibNa3AfEIlw2pI6uY9ysnnyVJW2Kn1PSB5cExjyLR740TVy00KFQ0" target="_blank" rel="noopener">
                 Read the Bulletin
@@ -1291,7 +1345,7 @@
     <section class="aonlf-mv" id="mission-vision">
         <div class="aonlf-mv__grid">
             <div class="aonlf-mv__media">
-                <img class="aonlf-img" src="https://images.unsplash.com/photo-1590611936760-eeb9bc598548?q=80&w=1200&auto=format&fit=crop" alt="Profesional de enfermería con mascarilla en un entorno clínico">
+                <img class="aonlf-img" src="./imgs/example-1.jpg" alt="Nurse leaders celebrating an achievement together">
             </div>
             <div class="aonlf-mv__text">
                 <div class="aonlf-mv__block">
@@ -1304,7 +1358,7 @@
                 <div class="aonlf-mv__block">
                     <span class="aonlf-mv__label">Our Vision</span>
                     <p class="aonlf-mv__statement">
-                        A healthier tomorrow, advanced through nursing leadership.
+                        A healthier tomorrow advanced through nursing leadership.
                     </p>
                 </div>
             </div>
@@ -1327,7 +1381,7 @@
                     <p class="aonlf-who__intro">
                         Foundation-funded programs reach nurse leaders across every stage of their
                         careers — from those just stepping into leadership to seasoned executives
-                        shaping care for entire health systems.
+                        shaping care for entire communities.
                     </p>
                     <div class="aonlf-who__groups">
                         <div class="aonlf-who__group">
@@ -1343,14 +1397,14 @@
                             <span class="aonlf-who__group-desc">Nurses stepping into their first formal leadership roles.</span>
                         </div>
                         <div class="aonlf-who__group">
-                            <span class="aonlf-who__group-name">Nurse Researchers</span>
-                            <span class="aonlf-who__group-desc">Scholars advancing the evidence base behind nursing leadership.</span>
+                            <span class="aonlf-who__group-name">Nurse Researchers and Scientists</span>
+                            <span class="aonlf-who__group-desc">Scholars and scientists advancing the evidence behind nursing leadership and system science.</span>
                         </div>
                     </div>
-                    <p class="aonlf-who__impact">Together, they're building a stronger, more resilient nursing workforce.</p>
+                    <p class="aonlf-who__impact">Together with our generous donors, we advance the future of nursing leadership by directly supporting nurse leaders.</p>
                 </div>
                 <div class="aonlf-who__media">
-                    <img class="aonlf-img" src="https://images.unsplash.com/photo-1631815590058-860e4f83c1e8?q=80&w=1200&auto=format&fit=crop" alt="Profesional de salud tomando la presión arterial a una paciente">
+                    <img class="aonlf-img" src="./imgs/example-2.jpg" alt="A nurse leader connecting with a colleague in a hospital hallway">
                 </div>
             </div>
         </div>
@@ -1358,14 +1412,12 @@
 
     <!-- ════════════════════════════════════════════
    OUR IMPACT
-   (Ver nota debajo del código sobre la versión de la
-   captura anotada — no coincide 1:1 con esta sección)
 ════════════════════════════════════════════ -->
     <section class="tint" id="impact">
         <div class="aonlf-inner">
             <div class="aonlf-impact__grid">
                 <div class="aonlf-impact__media">
-                    <img class="aonlf-img" src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1200&auto=format&fit=crop" alt="Enfermera sosteniendo un estetoscopio en forma de corazón">
+                    <img class="aonlf-img" src="./imgs/13_TUES 3-31-26 Exhit Hall & Power Session 930am-1030am-00267.jpg" alt="Nurse leaders connecting at the AONL exhibit hall">
                 </div>
                 <div>
                     <div class="section-kicker">
@@ -1374,7 +1426,7 @@
                     </div>
                     <h2 class="section-title">Programs Funded by Your Generosity</h2>
                     <p class="section-subtitle" style="margin-bottom:1.75em;">
-                        From research to mentorship, Foundation-funded programs help nurse leaders grow,
+                        Foundation-funded programs help nurse leaders grow,
                         lead and inspire the next generation.
                     </p>
 
@@ -1389,15 +1441,15 @@
                         <div class="aonlf-impact__item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" /></svg>
                             <div>
-                                <p class="aonlf-impact__item-title">Educational Scholarships</p>
-                                <p class="aonlf-impact__item-desc">Helping nurse leaders attend AONL education events and grow their careers.</p>
+                                <p class="aonlf-impact__item-title">Scholarships</p>
+                                <p class="aonlf-impact__item-desc">Supporting nurse leaders.</p>
                             </div>
                         </div>
                         <div class="aonlf-impact__item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 8v4l2.5 2.5" /></svg>
                             <div>
-                                <p class="aonlf-impact__item-title">Think Tank &amp; Symposium</p>
-                                <p class="aonlf-impact__item-desc">Convening nurse leaders to tackle new and important topics facing the profession.</p>
+                                <p class="aonlf-impact__item-title">Think Tanks &amp; Leadership Symposiums</p>
+                                <p class="aonlf-impact__item-desc">Convening nurse leaders to address critical topics facing the nursing profession and healthcare.</p>
                             </div>
                         </div>
                     </div>
@@ -1411,10 +1463,6 @@
 
     <!-- ════════════════════════════════════════════
    WAYS TO GIVE
-   Corporate Partnership y Tribute & Planned Gifts ahora
-   apuntan a subpáginas (con el mailto disponible dentro
-   de cada una) en lugar de abrir el cliente de correo
-   directamente desde el homepage.
 ════════════════════════════════════════════ -->
     <section class="gold-tint" id="ways-to-give">
         <div class="aonlf-inner">
@@ -1425,12 +1473,12 @@
             <h2 class="section-title">Choose the Way You'd Like to Support Nurse Leaders</h2>
             <p class="section-subtitle">
                 Every gift — however you choose to give — funds scholarships, research and leadership
-                programs for nurses nationwide.
+                programs for nurse leaders nationwide.
             </p>
 
             <div class="aonlf-give__grid">
                 <div class="aonlf-give__media">
-                    <img class="aonlf-img" src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=1200&auto=format&fit=crop" alt="Profesional de la salud sosteniendo un estetoscopio">
+                    <img class="aonlf-img" src="./imgs/20_TUES 3-31-26 House of Bluse 630pm-830pm-00378.jpg" alt="Community of donors and nurse leaders celebrating together">
                 </div>
                 <div class="aonlf-give__list">
                     <div class="aonlf-give__row">
@@ -1442,23 +1490,31 @@
                     </div>
                     <div class="aonlf-give__row">
                         <div>
-                            <p class="aonlf-give__row-title">Monthly Giving</p>
-                            <p class="aonlf-give__row-desc">Provide sustained support with a recurring gift that grows our impact over time.</p>
+                            <p class="aonlf-give__row-title">Recurring Giving</p>
+                            <p class="aonlf-give__row-desc">Provide ongoing support with a monthly, quarterly, or yearly gift that sustains the Foundation throughout the year.</p>
                         </div>
                         <a class="aonlf-give__row-link" href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">Give monthly →</a>
                     </div>
                     <div class="aonlf-give__row">
                         <div>
                             <p class="aonlf-give__row-title">Corporate Partnership</p>
-                            <p class="aonlf-give__row-desc">Partner with the Foundation to fund research, scholarships and events.</p>
+                            <p class="aonlf-give__row-desc">Collaborate with the Foundation to support your organization's strategic goals, contribute to research, fund scholarships, and engage with nurse leaders.</p>
                         </div>
                         <!-- Subpágina de Alianzas Corporativas (ajustar ruta real) -->
                         <a class="aonlf-give__row-link" href="/ways-to-give/corporate-partnership">Contact us →</a>
                     </div>
                     <div class="aonlf-give__row">
                         <div>
-                            <p class="aonlf-give__row-title">Tribute &amp; Planned Gifts</p>
-                            <p class="aonlf-give__row-desc">Honor a nurse leader or include the Foundation in your long-term giving plans.</p>
+                            <p class="aonlf-give__row-title">Planned Gifts</p>
+                            <p class="aonlf-give__row-desc">Make a lasting impact by including the AONL Foundation in your estate plan.</p>
+                        </div>
+                        <!-- Subpágina de Donaciones en Honor y Planificadas (ajustar ruta real) -->
+                        <a class="aonlf-give__row-link" href="/ways-to-give/tribute-and-planned-gifts">Learn more →</a>
+                    </div>
+                    <div class="aonlf-give__row">
+                        <div>
+                            <p class="aonlf-give__row-title">Named Scholarship</p>
+                            <p class="aonlf-give__row-desc">A named scholarship allows a donor, family or organization to provide a scholarship opportunity to nurse leaders.</p>
                         </div>
                         <!-- Subpágina de Donaciones en Honor y Planificadas (ajustar ruta real) -->
                         <a class="aonlf-give__row-link" href="/ways-to-give/tribute-and-planned-gifts">Learn more →</a>
@@ -1486,7 +1542,24 @@
                 </a>
             </div>
             <div class="aonlf-donate-block__media">
-                <img class="aonlf-img" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1200&auto=format&fit=crop" alt="Enfermero sonriendo con un estetoscopio alrededor del cuello">
+                <img class="aonlf-img" src="./imgs/04_MON 3-30-26 Opening Keynote 8am-930am-00350.jpg" alt="Audience applauding at the AONL Opening Keynote">
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+   NEWSLETTER SIGN-UP (Bloomerang embed)
+════════════════════════════════════════════ -->
+    <section class="aonlf-newsletter" id="newsletter">
+        <div class="aonlf-newsletter__inner">
+            <p class="aonlf-newsletter__kicker">Stay Connected</p>
+            <h2 class="aonlf-newsletter__title">Get Foundation Updates in Your Inbox</h2>
+            <p class="aonlf-newsletter__text">
+                Sign up to hear about Think Tanks, Leadership Symposiums, the Research Grants
+                Program, Scholarships and In-Person Events from the AONL Foundation.
+            </p>
+            <div class="aonlf-newsletter__form-wrap">
+                <div id="bloomerangForm142888960"></div>
             </div>
         </div>
     </section>
@@ -1500,7 +1573,8 @@
         <div class="aonlf-inner">
             <div class="aonlf-footer__grid">
                 <div>
-                    <p class="aonlf-footer__brand">AONL Foundation</p>
+                    <img src="https://www.aonl.org/sites/default/files/styles/edp_logo/public/aone/AONL_Logo_Hor__WHT_0.png?itok=ZmFEo6nw" alt="" srcset="">
+                    <!-- <p class="aonlf-footer__brand">AONL Foundation</p> -->
                     <p class="aonlf-footer__tagline">
                         Advancing a healthier tomorrow through nursing leadership — funding research,
                         scholarships and leadership development nationwide.
@@ -1512,16 +1586,18 @@
                         <li><a href="#mission-vision">Mission &amp; Vision</a></li>
                         <li><a href="#who-we-support">Who We Support</a></li>
                         <li><a href="#impact">Our Impact</a></li>
-                        <li><a href="#ways-to-give">Ways to Give</a></li>
                         <li><a href="#bulletin">Foundation Bulletin</a></li>
+                        <li><a href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">Donate Now</a></li>
                     </ul>
                 </div>
                 <div>
                     <p class="aonlf-footer__heading">Get Involved</p>
                     <ul class="aonlf-footer__links">
-                        <li><a href="https://ams.aha.org/eweb/DynamicPage.aspx?WebCode=ProdDetailAdd&amp;ivd_prc_prd_key=9adefb12-f57e-44d3-9859-72faecfd2d5d" target="_blank" rel="noopener">Donate Now</a></li>
+                        
                         <li><a href="/ways-to-give/corporate-partnership">Corporate Partnership</a></li>
-                        <li><a href="/ways-to-give/tribute-and-planned-gifts">Tribute &amp; Planned Gifts</a></li>
+                        <li><a href="/ways-to-give/tribute-and-planned-gifts">Volunteer</a></li>
+                        <li><a href="#ways-to-give">Ways to Give</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
@@ -1638,6 +1714,328 @@
             initAonlf();
         }
     })();
+    </script>
+
+    <!-- ════════════════════════════════════════════
+   NEWSLETTER EMBED SCRIPT (Bloomerang)
+   Pegado tal cual del código provisto — genera e
+   inyecta el formulario dentro de #bloomerangForm142888960
+════════════════════════════════════════════ -->
+    <script type="text/javascript" id="bloomerangForm142888960"></script>
+    <script type="text/javascript">
+    var insertForm142888960 = function() {
+        var html142888960 = '<style text=\'text/css\'>' + 
+'.email-registration-form label{color: #404040;' + 
+'                display: block;}' + 
+'' + 
+'.email-registration-form label.error{color:#900;' + 
+'                display: inline-block; ' + 
+'                padding: 0 10px;}' + 
+'' + 
+'.email-registration-form .field{padding: 4px 0;}' + 
+'' + 
+'.email-registration-form .consent{padding-bottom: 4px;}' + 
+'' + 
+'.email-registration-form .field .required-star{color: #aa0000; ' + 
+'                display: inline-block; ' + 
+'                margin-left: 5px;}' + 
+'' + 
+'.email-registration-form .field .checkboxes{max-width:275px;' + 
+'                border: 1px solid #A9A9A9;' + 
+'                -webkit-transition: all .3s ease-out;' + 
+'                -moz-transition: all .3s ease-out;' + 
+'                transition: all .3s ease-out;}' + 
+'' + 
+'.email-registration-form .field .checkbox{display:block;' + 
+'                position:relative;' + 
+'                -moz-box-sizing:border-box;' + 
+'                box-sizing:border-box;' + 
+'                height:30px;' + 
+'                line-height:26px;' + 
+'                padding:2px 28px 2px 8px;' + 
+'                border-bottom:1px solid rgba(0,0,0,0.1);' + 
+'                color:#404040;  ' + 
+'                overflow:hidden;' + 
+'                text-decoration:none; }' + 
+'' + 
+'.email-registration-form .field .checkbox input{opacity:0.01;' + 
+'                position:absolute;' + 
+'                left:-50px;  ' + 
+'                z-index:-5;}' + 
+'' + 
+'.email-registration-form .field .checkbox:last-child{border-bottom:none;}' + 
+'' + 
+'.email-registration-form .field .checkbox.selected{background: rgb(50, 142, 253);' + 
+'                color:#fff; }' + 
+'' + 
+'.email-registration-form .field .checkbox.selected:before{color:#fff;' + 
+'                line-height:30px;' + 
+'                position:absolute;' + 
+'                right:10px; }' + 
+'' + 
+'.email-registration-form .field input{padding: 4px; ' + 
+'                width: 275px;}' + 
+'' + 
+'.email-registration-form .errors{border: 1px solid #900;' + 
+'                color: #900;  ' + 
+'                padding: 10px;}' + 
+'' + 
+'.email-registration-form .hidden{display: none;}' + 
+'' + 
+'.btn-group .btn-submit-email{padding: 4px 10px;}' + 
+'' + 
+'input, select, textarea, button{font-family: inherit;}' + 
+'' + 
+'</style>' + 
+'' + 
+'<div id="email-registration-form-container">' + 
+'  <form id="email-registration-form" class="email-registration-form" method="post" action="javascript:void(0)">' + 
+'    <div class="errors hidden"></div>' + 
+'    <div class="section contact">' + 
+'      <h3>Contact Information</h3>' + 
+'      <div class="field text first-name required" >' + 
+'<label for="first-name"><span class="label">First Name</span><span class="required-star">*</span></label>' + 
+'<input id="first-name" name="first-name" class="required" type="text"></input>' + 
+'</div>' + 
+'<div class="field text last-name required" >' + 
+'<label for="last-name"><span class="label">Last Name</span><span class="required-star">*</span></label>' + 
+'<input id="last-name" name="last-name" class="required" type="text"></input>' + 
+'</div>' + 
+'<div class="field email email-address required" >' + 
+'<label for="email-address"><span class="label">Email</span><span class="required-star">*</span></label>' + 
+'<input id="email-address" name="email-address" class="email required" type="email" placeholder="someone@website.com"></input>' + 
+'</div>' + 
+'<div class="consent">I want to receive emails at this address</div>' + 
+'' + 
+'</div>' + 
+'    <div class="section custom-fields">' + 
+'      <h3>Additional Information</h3>' + 
+'      <div class="field text CustomAccountField_102298625" >' + 
+'<label for="CustomAccountField_102298625">I would like to receive emails about:</label>' + 
+'<div id="CustomAccountField_102298625" class="checkboxes"><a href="javascript:void(0)" class="checkbox" data-id="127467521" onclick="var box = jQuery(this).children(\'input\'); box.prop(\'checked\', !box.prop(\'checked\'));jQuery(box).trigger(\'change\'); return false;">' + 
+'                                <input type="checkbox" value="127467521" onchange="jQuery(this).closest(\'.checkbox\').toggleClass(\'selected\')">' + 
+'                                <span class="text">In-Person Events</span>' + 
+'                              </a>' + 
+'<a href="javascript:void(0)" class="checkbox" data-id="102301697" onclick="var box = jQuery(this).children(\'input\'); box.prop(\'checked\', !box.prop(\'checked\'));jQuery(box).trigger(\'change\'); return false;">' + 
+'                                <input type="checkbox" value="102301697" onchange="jQuery(this).closest(\'.checkbox\').toggleClass(\'selected\')">' + 
+'                                <span class="text">Leadership Symposiums</span>' + 
+'                              </a>' + 
+'<a href="javascript:void(0)" class="checkbox" data-id="102300673" onclick="var box = jQuery(this).children(\'input\'); box.prop(\'checked\', !box.prop(\'checked\'));jQuery(box).trigger(\'change\'); return false;">' + 
+'                                <input type="checkbox" value="102300673" onchange="jQuery(this).closest(\'.checkbox\').toggleClass(\'selected\')">' + 
+'                                <span class="text">Research Grants Program</span>' + 
+'                              </a>' + 
+'<a href="javascript:void(0)" class="checkbox" data-id="102299649" onclick="var box = jQuery(this).children(\'input\'); box.prop(\'checked\', !box.prop(\'checked\'));jQuery(box).trigger(\'change\'); return false;">' + 
+'                                <input type="checkbox" value="102299649" onchange="jQuery(this).closest(\'.checkbox\').toggleClass(\'selected\')">' + 
+'                                <span class="text">Scholarships</span>' + 
+'                              </a>' + 
+'<a href="javascript:void(0)" class="checkbox" data-id="104639489" onclick="var box = jQuery(this).children(\'input\'); box.prop(\'checked\', !box.prop(\'checked\'));jQuery(box).trigger(\'change\'); return false;">' + 
+'                                <input type="checkbox" value="104639489" onchange="jQuery(this).closest(\'.checkbox\').toggleClass(\'selected\')">' + 
+'                                <span class="text">Think Tanks</span>' + 
+'                              </a>' + 
+'</div>' + 
+'</div>' + 
+'' + 
+'</div>' + 
+'    ' + 
+'    <div class="btn-group">' + 
+'      <input class="btn btn-submit btn-submit-email" type="submit" value="Sign up"/>' + 
+'    </div>' + 
+'  </form>' + 
+'</div>' + 
+'' + 
+'' +  '';var successHtml142888960 = '<div class=\'donation-success\'>' +
+                                                       '  <h2>You are on the contact list!</h2>' +
+                                                       '  <p>Your email address has been added to our mailing list. You will recieve notifications via email about our programs.</p>' + 
+                                                        '\u003cdiv class=\"social-media-buttons\" style=\"margin-top:10px;\"\u003e\u003cdiv id=\"twitter-buttons\"\u003e\u003c/div\u003e\u003cdiv class=\"fb-like\" data-href=\"https://facebook.com/aonlnurses\" data-layout=\"button_count\" data-show-faces=\"true\" style=\"padding-right: 10px;\" data-action=\"like\" \u003e\u003c/div\u003e\u003cdiv id=\"facebookShareOnly\" class=\"fb-share-button\" data-href=\"https://facebook.com/aonlnurses\" data-layout=\"button_count\"\u003e\u003c/div\u003e\u003cscript type=\u0027text/javascript\u0027\u003edocument.getElementById(\u0027facebookShareOnly\u0027).setAttribute(\u0027data-href\u0027, window.location.href);\u003c/script\u003e\u003c/div\u003e \u003cscript\u003e\r\n                    if (navigator.userAgent.indexOf(\u0027Edge/\u0027) === -1) {\r\n                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\"http\":\"https\";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document, \"script\", \"twitter-wjs\");\r\n                        var twitterButtons = document.getElementById(\u0027twitter-buttons\u0027);\r\n                        twitterButtons.innerHTML = \u0027\u003cdiv id=\"tweetButton\" style=\"float:left; margin-right:10px\"\u003e \u003ca href=\"https://twitter.com/share\" data-text=\"I just signed up for @tweetAONL\u0026#39;s email list. You should too!\" class=\"twitter-share-button\"\u003eTweet\u003c/a\u003e \u003c/div\u003e\u003cdiv id=\"followButton\"\u003e \u003ca href=\"https://twitter.com/tweetAONL\" class=\"twitter-follow-button\"\u003eFollow\u003c/a\u003e \u003c/div\u003e\u0027;\r\n                        twitterButtons.style.height = \u002735px\u0027;\r\n                    }\r\n                \u003c/script\u003e \u003cdiv id=\"fb-root\"\u003e\u003c/div\u003e \u003cscript\u003e(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1\u0026version=v2.8\"; fjs.parentNode.insertBefore(js, fjs); }(document, \u0027script\u0027, \u0027facebook-jssdk\u0027));\u003c/script\u003e ' + 
+                                                        '</div>';( function($) {if (!Bloomerang.useEmailId('142888960')) { 
+                                    html142888960 = '<p style="color: red">Only one email sign-up form can be used on each page.</p>';
+                                }
+                                Bloomerang.Util.requireStripe();if (jQuery('#bloomerangForm142888960').length) {
+                        
+                        jQuery('#bloomerangForm142888960').after(html142888960);
+                        
+                        
+                        
+                        
+                        
+                    };
+                    if (Bloomerang.emailSignupFormLoaded) {
+                                            return false;
+                                        }
+                                        Bloomerang.emailSignupFormLoaded = true;
+                     jQuery('.email-registration-form .section.captcha').attr('style', 'display: none'); 
+                    
+                    Bloomerang.useKey('pub_0e7efbbb-081a-11e8-94a1-0a7fa948a058');
+
+        // Register proper callbacks for various stages/outcomes of submission
+        Bloomerang.Widget.Email.OnSubmit = function (args) {
+            jQuery(".btn-submit-email").val("Registering...").prop("disabled", true).addClass("disabled");
+            var val = function (selector) { return jQuery(selector).val(); };
+            Bloomerang.Account
+                    .individual()
+                    .firstName(val(".email-registration-form #first-name"))
+                    .lastName(val(".email-registration-form #last-name"))
+                    .homeEmail(val(".email-registration-form #email-address"))
+                    .applyEmailSignupCustomFields();
+                    
+           Bloomerang.Interaction.applyEmailSignupCustomFields();
+        };
+        Bloomerang.ValidateEmailSignupFormCaptcha = function() {
+            if (typeof(grecaptcha) !== "undefined" && jQuery("#captcha" + Bloomerang.Data.WidgetIds.EmailSignup).children().length) {
+                var captchaResponse = grecaptcha.getResponse(jQuery(".email-registration-form").data("captcha-id"));
+                if (captchaResponse) {
+                    jQuery(".email-registration-form .noCaptchaResponseError").hide();
+                    Bloomerang.captchaResponse(captchaResponse);
+                    return true;
+                } else {
+                    jQuery(".email-registration-form .noCaptchaResponseError").show();
+                    return false;
+                }
+            } else return true;
+        };
+        Bloomerang.Api.OnSuccess = Bloomerang.Widget.Email.OnSuccess = function (response) {
+            jQuery("#email-registration-form-container").html(successHtml142888960);
+            var distance = 100;
+            var offset = jQuery("#email-registration-form-container").offset().top;
+            var offsetTop = offset > distance ? offset - distance : offset;
+		        jQuery('html, body').animate({ scrollTop : offsetTop}, 500);
+        };
+        Bloomerang.Api.OnError = Bloomerang.Widget.Email.OnError = function (response) {
+            jQuery(".btn-submit-email").val("Register").prop("disabled", false).removeClass("disabled");
+            jQuery("#email-registration-form-container .errors").removeClass("hidden").html(response.Message);
+            var distance = 100;
+            var offset = jQuery("#email-registration-form-container .errors").offset().top;
+            var offsetTop = offset > distance ? offset - distance : offset;
+		        jQuery('html, body').animate({ scrollTop : offsetTop}, 500);
+            if (typeof(grecaptcha) !== "undefined" && jQuery("#captcha" + Bloomerang.Data.WidgetIds.EmailSignup).children().length) {
+              grecaptcha.reset(jQuery(".email-registration-form").data("captcha-id"));
+            }
+        };
+        
+        Bloomerang.Util.applyEmailSignupCustomFields = function (obj, type) {
+        
+            // Clear any fields from a previous failed submission
+            obj.clearCustomFields();
+        
+            // Apply all <input> (not multiselect), <select> and <textarea> fields
+            jQuery(".email-registration-form .section.custom-fields :input:not(a > input, select)[id*=" + type + "]").each(function() {
+                if (jQuery(this).val().hasValue()) {
+                    obj.customFreeformField(jQuery(this).attr("id").toUntypedValue(), jQuery(this).val());
+                }
+            });
+            
+            // Apply all <select> fields
+            jQuery(".email-registration-form .section.custom-fields select[id*=" + type + "]").each(function() {
+                if (jQuery(this).val().hasValue()) {
+                    obj.customPickField(jQuery(this).attr("id").toUntypedValue(), jQuery(this).val());
+                }
+            });
+                
+            // Apply all multiselect fields
+            jQuery(".email-registration-form .section.custom-fields .checkboxes[id*=" + type + "]").each(function() {
+                obj.customPickField(jQuery(this).attr("id").toUntypedValue(),
+                jQuery.map(jQuery(this).children(".checkbox.selected"), function(v) { return jQuery(v).attr("data-id"); }));
+            });
+        };
+        
+        String.prototype.hasValue = function() {
+            return (this && jQuery.trim(this)); //IE8 doesn't have a native trim function
+        };
+        
+        Bloomerang.Account.applyEmailSignupCustomFields = function () {
+            Bloomerang.Util.applyEmailSignupCustomFields(this, "Account");
+            return this;
+        };
+        
+        Bloomerang.Interaction.applyEmailSignupCustomFields = function () {
+            Bloomerang.Util.applyEmailSignupCustomFields(this, "Interaction");
+            return this;
+        };
+        
+        String.prototype.toUntypedValue = function() {
+            return this.substring(this.indexOf('_') + 1);
+        };
+
+        jQuery.validator.addMethod("currency", function (value, element, options) {
+            return !value ||
+                value
+                  .replace("$", "")
+                  .replace(".", "")
+                  .split(",").join("")
+                  .match(/^\d+$/g);
+        }, "Not a valid currency");
+
+        jQuery.validator.classRuleSettings.currency = { currency: true };
+
+        jQuery.validator.addMethod("number", function (value, element, options) {
+            return !value ||
+                value
+                  .replace(".", "")
+                  .split(",").join("")
+                  .match(/^\d+$/g);
+        }, "Not a valid number");
+
+        jQuery.validator.classRuleSettings.number = { number: true };
+        
+        jQuery.validator.addMethod("validYear", function (value, element, options) {
+            try {
+                return (!value || value.match(/^[1-9]\d\d\d$/)) ? true : false;
+            }
+            catch (e) {
+                return false;
+            }
+        }, function () { return "Must be a 4 digit year"; });
+
+        jQuery.validator.classRuleSettings.validYear = { validYear: true };
+
+        // Intercept form submission to validate then submit via API
+        jQuery("#email-registration-form-container form").validate({
+            submitHandler: function () {
+                if (!Bloomerang.ValidateEmailSignupFormCaptcha()) {
+                  return false;
+                }
+            
+                // Restore proper callbacks in case there are multiple widgets on the page
+                Bloomerang.Api.OnSubmit = Bloomerang.Widget.Email.OnSubmit;
+                Bloomerang.Api.OnSuccess = Bloomerang.Widget.Email.OnSuccess;
+                Bloomerang.Api.OnError = Bloomerang.Widget.Email.OnError;
+                Bloomerang.Api.joinMailingList();
+            }
+        });
+        
+})(jQuery);
+    };
+    
+                var startBloomerangLoad = function() {
+                    if (window.bloomerangLoadStarted == undefined) {
+                        window.bloomerangLoadStarted = true;
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'https://crm.bloomerang.co/Content/Scripts/Api/Bloomerang-v2.js?nocache=1789305678';
+                        document.getElementsByTagName('head')[0].appendChild(script);
+                        waitForBloomerangLoad(function() { Bloomerang.Util.requireJQueryValidation(function() { insertForm142888960(); })});
+                    }
+                    else {
+                        waitForBloomerangLoad(function() { Bloomerang.Util.requireJQueryValidation(function() { insertForm142888960(); })});
+                    }
+                };
+
+                var waitForBloomerangLoad = function(callback) {
+                    if (typeof(Bloomerang) === 'undefined' || !Bloomerang._isReady) {
+                        setTimeout(function () { waitForBloomerangLoad(callback) }, 500);
+                    }
+                    else {
+                        if (true) {
+                            callback();
+                        } else {
+                            window.bloomerangLoadStarted = undefined;
+                            Bloomerang = undefined; // The version of Blomerang.js is not what we want. So blow it away and reload.
+                            startBloomerangLoad();
+                        }
+                    }
+                };
+
+                startBloomerangLoad();
     </script>
 
 </div>
